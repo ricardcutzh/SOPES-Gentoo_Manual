@@ -147,3 +147,147 @@ $ emerge --ask sys-kernel/genkernel
 $ genkernel all
 ```
 ![tba](imgs/i11.PNG)
+
+4. Kernel Compilado exitosamente
+
+![tba](imgs/i12.PNG)
+
+5. Demás configuraciones puede consultar la documentación para ser más especifica.
+
+## Instalación de Requerimientos de Práctica
+
+### Conexion a Internet
+1. Instalaremos el paquete 'dhcpcd'
+```
+$ emerge --ask dhcpcd
+```
+![tba](imgs/i14.PNG)
+
+2. Buscamos nuestra interfaz
+```
+$ ip addr
+```
+
+![tba](imgs/i15.PNG)
+
+3. Configuramos la interfaz que vemos en la salida anterior
+```
+$ dhcpcd enp0s3
+```
+
+![tba](imgs/i16.PNG)
+
+4. Comprobamos conectividad
+
+![tba](imgs/i17.PNG)
+
+## Instalacion de SUDO y Creacion de Grupo
+1. Instalamos SUDO con el siguiente comando
+
+```
+$ emerge --ask app-admin/sudo
+```
+
+![tba](imgs/i17.PNG)
+
+2. Creamos el grupo Sopes2
+
+```
+$ groupadd sopes2
+```
+
+3. Agregamos root y u201503476 al grupo Sopes2
+```
+$ usermod -a -G sopes2 root
+$ usermod -a -G sopes2 u201503476
+```
+
+## Creacion de la carpeta: practica1
+1. Creamos la carpeta:
+```
+$ sudo mkdir practica1
+```
+
+2. Cambiamos el propietario de la carpeta
+```
+$ sudo chown -R u201503476:sopes2 practica1/
+```
+
+3. Para dar permisos de lectura, escritura y ejecucion al owner
+```
+$ sudo chmod +rwx practica1/
+```
+
+4. Para dar permisos de lectura, escritura y ejecucion al grupo
+```
+$ sudo chmod g+rwx practica1/
+```
+
+## Instalaciones de aplicaciones faltantes
+
+1. Linux Headers
+```
+$ emerge --ask sys-kernel/linux-headres
+```
+2. Make
+```
+$ make --version
+```
+3. Perl
+```
+$ emerge --ask dev-lang/perl
+```
+4. gcc
+```
+$ gcc --version
+```
+5. build-essential
+
+## Modificacion de parametros de kernel
+
+![tba](imgs/i18.PNG)
+
+## Screenshots
+1. uname -a 
+
+![tba](imgs/i19.PNG)
+
+2. hostname
+
+![tba](imgs/i20.PNG)
+
+3. sysctl -a | grep sem
+
+![tba](imgs/i21.PNG)
+
+4. sysctl -a | grep shm
+
+![tba](imgs/i22.PNG)
+
+5. sysctl -a | grep file
+
+![tba](imgs/i23.PNG)
+
+6. xclock
+
+![tba](imgs/i24.PNG)
+
+7. cat /etc/passswd
+
+![tba](imgs/i25.PNG)
+
+8. car /etc/Group
+
+![tba](imgs/i26.PNG)
+
+9. free -m 
+
+![tba](imgs/i27.PNG)
+
+10. df -h
+
+![tba](imgs/i28.PNG)
+
+11. ping -c3 google.com
+
+![tba](imgs/i29.PNG)
